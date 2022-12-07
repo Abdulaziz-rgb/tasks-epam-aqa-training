@@ -6,9 +6,9 @@ var PassengerCar = new PassengerCar(
     new Engine
 {
     Power = 200,
-    SerialNumber = "a1",
+    SerialNumber = "8uthg7e",
     Volume = 1.5,
-    Type = "B"
+    Type = "diesel"
 }, 
     new Chassis
 {
@@ -20,79 +20,78 @@ var PassengerCar = new PassengerCar(
 {
     Manufacturer = "Hyundai",
     NumberOfGears = 5,
-    Type = "Type-1"
+    Type = "automatic"
 } );
 
 var Bus = new Bus(
     "Bus",
     new Engine
     {
-        Power = 200,
-        SerialNumber = "a1",
-        Volume = 1.5,
-        Type = "B"
+        Power = 500,
+        SerialNumber = "c2daqt5",
+        Volume = 1.8,
+        Type = "petrol"
     },
     new Chassis
     {
-        Number = 2,
-        PermissibleLoad = 4000,
-        WheelsNumber = 6,
+        Number = 3,
+        PermissibleLoad = 3000,
+        WheelsNumber = 8,
     },
     new Transmission
     {
-        Manufacturer = "Hyundai",
+        Manufacturer = "Toyota",
         NumberOfGears = 5,
-        Type = "Type-1"
+        Type = "manual"
     });
 
 var Truck = new Truck(
     "Truck",
     new Engine
     {
-        Power = 200,
-        SerialNumber = "a1",
-        Volume = 1.5,
-        Type = "B"
+        Power = 800,
+        SerialNumber = "5ht73hs",
+        Volume = 4.0,
+        Type = "diesel"
     },
     new Chassis
     {
-        Number = 2,
-        PermissibleLoad = 4000,
+        Number = 4,
+        PermissibleLoad = 6000,
         WheelsNumber = 6,
     },
     new Transmission
     {
-        Manufacturer = "Hyundai",
+        Manufacturer = "Man",
         NumberOfGears = 5,
-        Type = "Type-1"
+        Type = "manual"
     });
 
 var Scooter = new Scooter(
     "Scooter",
     new Engine
     {
-        Power = 200,
-        SerialNumber = "a1",
-        Volume = 1.5,
-        Type = "B"
+        Power = 100,
+        SerialNumber = "7gh5hu4",
+        Volume = 1.0,
+        Type = "petrol"
     },
     new Chassis
     {
-        Number = 2,
-        PermissibleLoad = 4000,
-        WheelsNumber = 6,
+        Number = 0,
+        PermissibleLoad = 70,
+        WheelsNumber = 2,
     },
     new Transmission
     {
-        Manufacturer = "Hyundai",
-        NumberOfGears = 5,
-        Type = "Type-1"
+        Manufacturer = "BMW",
+        NumberOfGears = 3,
+        Type = "manual"
     });
 
-
-var Vehicles = new List<Vehicle>() { PassengerCar, Bus, Scooter, Truck };
-foreach (var item in Vehicles)
-{
-    item.DisplayInfo();
-}
+var vehicles = new List<Vehicle>() { PassengerCar, Bus, Scooter, Truck };
+ foreach (var item in vehicles)
+ {
+     item.DisplayInfo();
+ }
  
