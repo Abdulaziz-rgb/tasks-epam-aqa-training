@@ -1,6 +1,4 @@
-﻿using System.Security.Cryptography;
-
-namespace Tasks.Entities.Vehicles;
+﻿namespace Tasks.Entities.Vehicles;
 
 public abstract class Vehicle
 {
