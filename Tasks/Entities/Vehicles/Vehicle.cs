@@ -2,6 +2,16 @@
 
 public abstract class Vehicle
 {
+    public Guid Id { get; set; }
+    
+    public string Name { get; set; }
+    
+    public Engine Engine { get; set; }
+    
+    public Chassis Chassis { get; set; }
+    
+    public Transmission Transmission { get; set; }
+    
     public Vehicle( string name,Engine engine, Chassis chassis, Transmission transmission)
     {
         Id = Guid.NewGuid();
@@ -35,11 +45,4 @@ Transmission Number Of Gears: {11}
             Chassis.Number, Chassis.PermissibleLoad, Chassis.WheelsNumber, Transmission.Manufacturer,
             Transmission.Type, Transmission.NumberOfGears);
     }
-
-    public Guid Id { get; set; }
-    public string Name { get; set; }
-    public Engine Engine { get; set; }
-    public Chassis Chassis { get; set; }
-    public Transmission Transmission { get; set; }
-    
 }
