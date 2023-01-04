@@ -1,30 +1,32 @@
-﻿using Tasks.Entities;
+﻿using System.Xml.Serialization;
+using Tasks;
+using Tasks.Entities;
 using Tasks.Entities.Vehicles;
 
-var PassengerCar = new PassengerCar(
-    "Passenger car",
+var PassengerCar = new PassengerCar();
+PassengerCar.SetInfo( "Passenger car",
     new Engine
-{
-    Power = 200,
-    SerialNumber = "8uthg7e",
-    Volume = 1.5,
-    Type = "Diesel"
-}, 
+    {
+        Power = 200,
+        SerialNumber = "8uthg7e",
+        Volume = 1.5,
+        Type = "Diesel"
+    }, 
     new Chassis
-{
-    Number = 2,
-    PermissibleLoad = 4000,
-    WheelsNumber = 6,
-}, 
+    {
+        Number = 2,
+        PermissibleLoad = 4000,
+        WheelsNumber = 6,
+    }, 
     new Transmission
-{
-    Manufacturer = "Hyundai",
-    NumberOfGears = 5,
-    Type = "Automatic"
-} );
+    {
+        Manufacturer = "Hyundai",
+        NumberOfGears = 5,
+        Type = "Automatic"
+    } );
 
-var Bus = new Bus(
-    "Bus",
+var Bus = new Bus();
+Bus.SetInfo("Bus",
     new Engine
     {
         Power = 500,
@@ -45,8 +47,8 @@ var Bus = new Bus(
         Type = "Automatic"
     });
 
-var Truck = new Truck(
-    "Truck",
+var Truck = new Truck();
+Truck.SetInfo("Truck",
     new Engine
     {
         Power = 800,
@@ -67,8 +69,8 @@ var Truck = new Truck(
         Type = "Manual"
     });
 
-var Scooter = new Scooter(
-    "Scooter",
+var Scooter = new Scooter();
+Scooter.SetInfo("Scooter",
     new Engine
     {
         Power = 100,
@@ -91,23 +93,23 @@ var Scooter = new Scooter(
 
 var vehicles = new List<Vehicle>() { PassengerCar, Bus, Scooter, Truck };
 
-// All information about all vehicles an engine capacity of which is more than 1.5 liters;
+Console.WriteLine("\nAll information about all vehicles an engine capacity of which is more than 1.5 liters"); 
 var VehiclesWithEngineCapacity = vehicles
     .Where(vehicle => vehicle.Engine.Volume > 1.5)
     .ToList();
+Serializer.GetXmlString(VehiclesWithEngineCapacity);
 
 
-// Engine type, serial number and power rating for all buses and trucks;
+Console.WriteLine("\nEngine type, serial number and power rating for all buses and trucks");
 var VehiclesOfBussesAndTrucks = vehicles
     .Where(vehicle => vehicle.Name == "Bus" || vehicle.Name == "Truck")
     .ToList();
+Serializer.GetXmlString(VehiclesOfBussesAndTrucks);
 
 
-// All information about all vehicles, grouped by transmission type
+Console.WriteLine("\nAll information about all vehicles, grouped by transmission type"); 
 var VehiclesGroupedByTransmissionType = vehicles
     .Where(vehicle => vehicle.Transmission.Type == "Manual")
     .ToList();
-
-// Couldn't convert these objects into XML :)
-// The problem was that XMLSerializer can only function with parameterless constructor
- 
+Serializer.GetXmlString(VehiclesGroupedByTransmissionType);
+    

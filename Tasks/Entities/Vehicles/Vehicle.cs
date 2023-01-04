@@ -1,5 +1,6 @@
 ﻿namespace Tasks.Entities.Vehicles;
 
+[Obsolete]
 public abstract class Vehicle
 {
     public Guid Id { get; set; }
@@ -12,7 +13,11 @@ public abstract class Vehicle
     
     public Transmission Transmission { get; set; }
     
-    public Vehicle( string name,Engine engine, Chassis chassis, Transmission transmission)
+    public Vehicle()
+    {
+    }
+
+    public void SetInfo(string name,Engine engine, Chassis chassis, Transmission transmission)
     {
         Id = Guid.NewGuid();
         Name = name;
